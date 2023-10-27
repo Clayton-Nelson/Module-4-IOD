@@ -1,0 +1,3 @@
+requirements for media page.
+the main systems required for a social media page are a login credential system, and a system to generate the feed for users.
+the buttons required would be a log in and log in button, buttons for each friend to generate their page, as well as buttons to generate the pages for each community.

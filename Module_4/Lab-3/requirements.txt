@@ -1,0 +1,5 @@
+the requirements for a calculator page would be:
+getting data via 2 inputs from the user through text boxes,
+choosing an operator for the inputs,
+showing a result on screen after clicking a submit button,
+and a button to clear the inputs, operator, and result.

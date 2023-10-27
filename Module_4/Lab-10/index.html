@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fake Ecommerce Page</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="stylesheet.css" />
+  </head>
+  <body>
+    <template id="item-template">
+      <div class="item-card">
+        <div class="item-picture"></div>
+        <div class="item-title"></div>
+        <div class="item-price"></div>
+        <div class="item-description"></div>
+        <div class="item-category"></div>
+        <div class="item-rating"></div>
+      </div>
+    </template>
+    <div class="container">
+      <div class="search-container">
+        <p>Sort By Category:<select
+          id="refine-search-input"
+          name="States"
+          onchange="filterAndPrintByCategory()"
+        >
+          <option value="empty">Refine Search...</option>
+          <option value="men's clothing">Men's Clothing</option>
+          <option value="jewelery">Jewelery</option>
+          <option value="electronics">Electronics</option>
+          <option value="women's clothing">Women's Clothing</option>
+        </select>
+        </p>
+      </div>
+      <div id="item-display"></div>
+    </div>
+  </body>
+</html>

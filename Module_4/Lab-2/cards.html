@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <template id="card-template">
+      <div class="card-title"></div>
+      <div class="card-text"></div>
+    </template>
+    <template id="artist-card-template">
+      <div class="artist-profile">
+        <h2 class="artist-name"></h2>
+      </div>
+    </template>
+    <template id="portfolio-card-template">
+      <div class="portfolio-card">
+        <h3 class="portfolio-title"></h3>
+        <img class="portfolio-image" src="" alt="Portfolio Image" />
+      </div>
+    </template>
+    <div id="card-list"></div>
+    <br />
+    <br />
+    <div id="artist-profile"></div>
+    <div id="portfolio-cards"></div>
+
+    <script>
+      const data = [
+        { name: "bob", age: 23 },
+        { name: "alice", age: 39 },
+      ];
+
+      const artist = {
+        name: "Van Gogh",
+        portfolio: [
+          {
+            title: "portrait",
+            url: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image",
+          },
+          {
+            title: "sky",
+            url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg",
+          },
+        ],
+      };
+
+      function addCard(cardTitle, cardText) {
+        // clone the template
+        const template = document
+          .getElementById("card-template")
+          .content.cloneNode(true);
+        // populate the template
+        template.querySelector(".card-title").innerText = cardTitle;
+        template.querySelector(".card-text").innerText = cardText;
+        // include the populated template into the page
+        document.querySelector("#card-list").appendChild(template);
+      }
+      for (const person of data) {
+        addCard(person.name, person.age);
+      }
+      function createArtistProfile() {
+        const template = document
+          .getElementById("artist-card-template")
+          .content.cloneNode(true);
+        template.querySelector(".artist-name").innerText = artist.name;
+        document.getElementById("artist-profile").appendChild(template);
+      }
+
+      function createPortfolioCards() {
+        const template = document.getElementById("portfolio-card-template");
+
+        artist.portfolio.forEach((item) => {
+          const cardClone = template.content.cloneNode(true);
+          cardClone.querySelector(".portfolio-title").innerText = item.title;
+          cardClone.querySelector(".portfolio-image").src = item.url;
+          document.getElementById("portfolio-cards").appendChild(cardClone);
+        });
+      }
+      createArtistProfile();
+      createPortfolioCards();
+    </script>
+  </body>
+</html>
